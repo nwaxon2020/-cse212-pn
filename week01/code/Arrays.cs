@@ -8,12 +8,17 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        double[] result = new double[length];
 
-        return []; // replace this return statement with your own
+        // try to Loop.
+        for (int i = 1; i <= length; i++)
+        {
+            // Calculate the multiple and store it in array.
+            result[i - 1] = number * i;
+        }
+
+        // Step 5: Return the filled array.
+        return result;
     }
 
     /// <summary>
@@ -23,11 +28,26 @@ public static class Arrays
     ///
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
-    public static void RotateListRight(List<int> data, int amount)
+    public static void RotateListRight(List<int> numders, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        int seprate = numders.Count - amount;
+
+        //Get the right
+        List<int> rightNum = numders.GetRange(seprate, amount);
+        //Get the left .
+        List<int> leftNum = numders.GetRange(0, seprate);
+
+        // make list empty.
+        numders.Clear();
+
+        // join the numbers together into array.
+        numders.AddRange(rightNum);
+        numders.AddRange(leftNum);
     }
 }
+
+/*
+    Explanatons
+
+    1. For MultiplesOf, I multiply number by 1, 2, 3,down up to length and store each result.
+    2. For RotateListRight, I cut the list into two parts then join them together after getting results*/
